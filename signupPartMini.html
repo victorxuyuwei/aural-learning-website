@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sign up part mini</title>
+
+<!-- css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-2 col-md-10">
+      <ul class="list-group">
+      <li class="list-group-item">
+
+        <form class="form" id="mainform">
+          <div class="form-group">
+            <label for="signup-name">用户名</label>            
+            <input type="text" class="form-control" id="signup-name" name="username" placeholder="用户名">
+          </div> <!-- form-group -->
+          <div class="form-group">
+            <label for="signup-pass">密码</label>
+            <input type="password" class="form-control" id="signup-pass" name="password" placeholder="密码">
+          </div> <!-- form-group -->
+          <div class="form-group">
+            <label for="signup-pass2">确认密码</label>
+            <input type="password" class="form-control" id="signup-pass2" name="password2" placeholder="确认密码">
+          </div> <!-- form-group -->
+          <div class="form-group">
+            <label for="signup-email">E-mail</label>
+            <input type="email" class="form-control" id="signup-email" name="email" placeholder="E-mail">
+          </div> <!-- form-group -->
+          <div class="form-group">
+            <label>性别</label>
+            <label class="radio-inline">
+              <input type="radio" name="gender" value="1" checked>男
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="gender" value="0">女
+            </label>  
+          </div> <!-- radio -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-default" id="signup-submit">注册</button>
+          </div>
+        </form>
+
+      </li>
+      <li class="list-group-item" id="main">
+      </li>
+      </ul>
+      </div> <!-- col md 3 -->
+    </div> <!-- row -->
+  </div> <!-- contianer -->
+
+  <!-- js -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script>
+      $(document).ready(function(){
+          $('#mainform').submit(function() {
+        	  var options={
+                      url: "http://localhost/include/ajaxSignUp.php",
+                      timeout: 1000,
+                      cache: false,
+                      type: "post",
+                      dataType: "json",
+                      data: $("#mainform").serialize(),
+                      success: function(data){
+                          $('#main').empty();
+                          $('#main').text(JSON.stringify(data));
+                          // $('#main').text(data);
+                      },
+                      error: function(){
+                          alert("It's wrong.");
+                      }
+                  };
+              $.ajax(options);   
+              return false;   
+          });
+      });
+  </script>
+</body>
+</html>

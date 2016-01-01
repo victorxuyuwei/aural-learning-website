@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>index</title>
+
+<!-- css -->
+ <link rel="stylesheet" href="css/reset.css">
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <style>
+    body { padding-top: 70px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-fixed-top navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand">website-dev-learning</a>
+      </div>
+
+      <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">home<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- </div> -->
+    </div> <!-- nav end -->
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- <p class="bg-danger">22</p> -->
+        <ul class="list-group">
+          <li class="list-group-item">
+            <form> <!-- form of some input -->
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">Example block-level help text here.</p>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Check me out
+                </label>
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>            
+          </li>
+          <li class="list-group-item">
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" style="width: 64px; height: 64px;" src="index.svg" alt="...">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                ...
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div> <!-- col-md-3 end -->
+      <div class="col-md-9">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+      </ul>
+      <!-- <div class="list-group"> -->
+        <!-- <div class="list-group-item"> -->
+          <h1>This is the website-dev-learning project</h1>
+          <p>Basic panel example</p>
+          <div class="row col-md-6 col-md-offset-3 col-xs-12">
+            <audio controls>
+              <source src="audio/audio.wav" />
+            </audio>
+          </div>
+            
+        <!-- </div> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+<!-- js -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
