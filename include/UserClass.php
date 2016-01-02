@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include "DataBaseClass.php";
 
 /**
@@ -23,13 +25,17 @@ class User {
         return $this->info;
     }
     
-    public function __constract() {
+//     public function __construct() {
+//     	$this->init();
+//     }
+    
+    public function __construct() {
         $this->name = "visiter";
         $this->info = array();
         if (isset($_SESSION["uid"])) {
             global $db;
             $uid = $db->escape_string($_SESSION["uid"]);
-            $sql = "SELECT * FROM `users` WHERE `uid`='$uid'";
+            $sql = "SELECT `uid`,`name`,`email`,`gender`,`info`,`avatar` FROM `users` WHERE `uid`='$uid'";
 			$result = $db->query($sql);
             if (!$result || $result->num_rows != 1) {
                 self::$errno = $db->errno;
@@ -44,12 +50,13 @@ class User {
         global $db;
         $name = $db->escape_string($name);
         $pass = $db->escape_string(sha1($pass));
-        $sql = "SELECT * FROM `users` WHERE `name`='$name' AND `pass`='$pass'";
+        $sql = "SELECT `uid`,`name`,`email`,`gender`,`info`,`avatar` FROM `users` WHERE `name`='$name' AND `pass`='$pass'";
     
         $result = $db->query($sql);
         if (!$result || $result->num_rows != 1) {
             self::$errno = $db->errno;
             self::$error = $db->error;
+            $this->logout();
             return false;
         }
         $this->info = $result->fetch_assoc();
@@ -59,8 +66,9 @@ class User {
         return true;
     }
     public function logout() {
-        session_destory();
-        $this->__constract();
+        session_destroy();
+        unset($_SESSION);
+        $this->__construct();
     }
     
     /**
@@ -89,7 +97,7 @@ class User {
         $email = $db->escape_string($email);
         $info = $db->escape_string($info);
         $gender = ($gender == NULL) ? 'NULL' : $db->escape_string($gender);
-        $sql = "SELECT * FROM `users` WHERE `name`='$name'";
+        $sql = "SELECT `uid` FROM `users` WHERE `name`='$name'";
         $result = $db->query($sql);
         if ($result->num_rows > 0) {
         	self::$error = "username have existed";

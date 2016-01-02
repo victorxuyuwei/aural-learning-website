@@ -9,7 +9,8 @@
                 "Cow",
                 "Dog"
             ],
-            "answer":"A"
+            "answer":"A",
+            "analysis":"hahahha"
         },
         {
             "description":"Here is another problem",
@@ -20,12 +21,14 @@
                 "Cow",
                 "Dog"
             ],
-            "answer":["A","B","C"]
+            "answer":["A","B","C"],
+            "analysis":"nonono"
         },
         {
             "description":"Fill the blank here ______.",
             "type":"blank",
-            "answer":"good"
+            "answer":"good",
+            "analysis":"hahahha"
         }
     ]
 }

@@ -24,7 +24,6 @@ if (User::newuser($name,$pass,$email,$info,$gender)) {
 
 echo json_encode(array(
         "result" => $ret,
-		"name" => $curUser->getUsername(),
         "info" => $curUser->getUserinfo(),
 		"error" => User::$error
     ));
