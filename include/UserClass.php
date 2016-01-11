@@ -82,21 +82,36 @@ class User {
      * 
      * @return bool
      */
-    public static function newuser($name, $pass, $email, $info, $gender = NULL) {
+    public static function newuser($name, $pass, $email, $gender, $info="", $avatar="") {
         global $db;
         
         //typecheck here
-        if (!is_null($gender) && !is_numeric($gender)) {
-            die("ERROR in ". __METHOD__ . "\n\twrong type of gender");
-        }
         //safe check here
-
+        if (strlen($pass) < 6) {
+            self::$error = "illegal password";
+            return false;
+        }
         $name = $db->escape_string($name);
         $pass = $db->escape_string(sha1($pass));
-        
         $email = $db->escape_string($email);
         $info = $db->escape_string($info);
-        $gender = ($gender == NULL) ? 'NULL' : $db->escape_string($gender);
+        $gender = $db->escape_string($gender);
+        $avatar = $db->escape_string($avatar);
+
+        if ($name == "") {
+            self::$error = "illegal username";
+            return false;
+        }
+        if ($email == "") {
+            self::$error = "illegal email";
+            return false;
+        }
+        if ($gender == "") {
+            self::$error = "illegal gender";
+            return false;
+        }
+
+
         $sql = "SELECT `uid` FROM `users` WHERE `name`='$name'";
         $result = $db->query($sql);
         if ($result->num_rows > 0) {
@@ -105,8 +120,8 @@ class User {
         }
         
         $result->free();
-        $sql = "INSERT INTO `users`(`name`, `pass`, `email`, `gender`, `info`) " .
-                            "VALUES ('$name', '$pass', '$email', $gender, '$info')";
+        $sql = "INSERT INTO `users`(`name`, `pass`, `email`, `gender`, `info`,`avatar`) " .
+                            "VALUES ('$name', '$pass', '$email', '$gender', '$info', '$avatar')";
         
         $result = $db->query($sql);
         if (!$result) {

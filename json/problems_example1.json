@@ -1,0 +1,74 @@
+{
+    "eid":"1",
+    "title":"examples1",
+    "date":"2015-08-12",
+    "thumb":"1",
+    "src":"1.mp3",
+    "data":[
+        {
+            "description":"OS Camping has been organising holidays for",
+            "type":"choice",
+            "options":[
+                "15years",
+                "20years",
+                "25.years"
+            ],
+            "answer":"B",
+            "analysis":"注意题干中的prganising holidays 与原文提到的offering Camping holidays 是同一个意思，因此答案应是20年。"
+        },
+        {
+            "description":"The company has most Camping sites in ",
+            "type":"choice",
+            "options":[
+                "France",
+                "Italy",
+                "Switzerland"
+            ],
+            "answer":"A",
+             "analysis":"原文提到的France is where we have the majority of sites.可知法国有最多的旅游地"
+        },
+           
+        {
+            "description":"Which organised activity can children do every day of the week",
+            "type":"choice",
+            "options":[
+                "football",
+                "drama",
+                "model making"
+
+            ],
+            "answer":"B",
+             "analysis":"注意each day ,sports match是干扰选项"
+        },
+        {
+            "description":"Some areas of the sites have a 'no noise 'rule after",
+            "type":"choice",
+            "options":[
+                "9.30pm",
+                "10.00pm",
+                "10.30pm"
+            ],
+            "answer":"C",
+             "analysis":"10.30之后给出了quiet."
+        },  
+
+        {
+            "description":"All managers need to understand their employees and recognise their company's ______.",
+            "type":"blank",
+            "answer":"culture",
+            "analysis":"管理者应该有的两大品质：理解员工和认同企业文化"
+        },
+        {
+            "description":"When managing chage increasing the company's  ______ may be more important than employee satisfaction.",
+            "type":"blank",
+            "answer":"profit",
+            "analysis":"第一次说明there's a need to increase profit.第二次表明have to give priority to profit."
+        },
+        {
+            "description":"During periods with amounts of  ______.",
+            "type":"blank",
+            "answer":"stress",
+            "analysis":"管理者应该有的两大品质：理解员工和认同企业文化"
+        }
+    ]
+}

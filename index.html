@@ -1,114 +1,170 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>index</title>
 
 <!-- css -->
- <link rel="stylesheet" href="css/reset.css">
- <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <style>
-    body { padding-top: 70px; }
+    body { padding-top: 15px; }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-fixed-top navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand">website-dev-learning</a>
-      </div>
-
-      <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">home<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <!-- </div> -->
-    </div> <!-- nav end -->
-  </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <!-- <p class="bg-danger">22</p> -->
-        <ul class="list-group">
+      <div class="col-sm-3 ">
+        <ul class="list-group affix" style="width:240px;">
           <li class="list-group-item">
-            <form> <!-- form of some input -->
+            <form id="login-form"> <!-- login form -->
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="login-name">Username</label>
+                <input type="text" class="form-control" id="login-name" name="username" placeholder="Username">
               </div>
               <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
-                <p class="help-block">Example block-level help text here.</p>
+                <label for="login-pass">Password</label>
+                <input type="password" class="form-control" id="login-pass" name="password" placeholder="Password">
               </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Check me out
-                </label>
+              <div class="form-group text-center" id="login-button">
+                <div class="btn-group " role="group">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#SignupMod">Sign up</button>
+                  <button type="submit" class="btn btn-default">Log in</button>
+                </div>
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>            
-          </li>
-          <li class="list-group-item">
-            <div class="media">
-              <div class="media-left">
-                <a href="#">
-                  <img class="media-object" style="width: 64px; height: 64px;" src="index.svg" alt="...">
-                </a>
-              </div>
-              <div class="media-body">
-                <h4 class="media-heading">Media heading</h4>
-                ...
-              </div>
+            </form>
+            <div class="text-center" id="userinfo" style="display:none">
+              <button type="button" class="close" aria-label="Close" id="logout"><span aria-hidden="true">&times;</span></button>
+              <p><img src="images/circle.svg" width="140" height="140" class="img-circle"></img></p>
+              <h3></h3>
+              <p>Welcom to listening <br>training website</p>
+              <!-- <button type="button" class="btn btn-default btn-sm">Log out</button> -->
             </div>
           </li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+          <!-- <li class="list-group-item">function 1</li> -->
+          <button type="button" class="list-group-item sideNav" id="index" data-target="getIndex.html" data-hash="Home">Home</button>
+          <button type="button" class="list-group-item sideNav" data-target="getList.html" data-hash="List">Exams</button>
+          <button type="button" class="list-group-item" data-toggle="modal" data-target="#AboutusMod">About us</button>
         </ul>
-      </div> <!-- col-md-3 end -->
-      <div class="col-md-9">
-      <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
-      </ul>
-      <!-- <div class="list-group"> -->
-        <!-- <div class="list-group-item"> -->
-          <h1>This is the website-dev-learning project</h1>
-          <p>Basic panel example</p>
-          <div class="row col-md-6 col-md-offset-3 col-xs-12">
-            <audio controls>
-              <source src="audio/audio.wav" />
-            </audio>
-          </div>
-            
-        <!-- </div> -->
-      <!-- </div> -->
+      </div> <!-- col-sm-3 end -->
+      <div class="col-sm-9">
+        <div class="panel panel-default" id="main-content">
+        <!-- insert here -->
+        </div> <!-- panel -->
+      </div> <!-- col-sm-9 -->
+    </div> <!-- row -->
+  </div> <!-- container -->
+
+<!-- Sign up modal -->
+<div class="modal fade" id="SignupMod" tabindex="-1" role="dialog" aria-labelledby="SignupModLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="SignupModLabel">Signup</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12">
+              <form class="form-horizontal" id="signup-form">
+                <div class="form-group">
+                  <label for="signup-name" class="col-sm-3 control-label">用户名</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="signup-name" name="username" placeholder="用户名">
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <label for="signup-pass" class="col-sm-3 control-label">密码</label>
+                  <div class="col-sm-8">
+                    <input type="password" class="form-control" id="signup-pass" name="password" placeholder="密码">
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <label for="signup-pass2" class="col-sm-3 control-label">确认密码</label>
+                  <div class="col-sm-8">
+                    <input type="password" class="form-control" id="signup-pass2" name="password2" placeholder="确认密码">
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <label for="signup-email" class="col-sm-3 control-label">E-mail</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" id="signup-email" name="email" placeholder="E-mail">
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">性别</label>
+                  <div class="col-sm-8">
+                    <label class="radio-inline">
+                      <input type="radio" name="gender" value="1" checked>男
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="gender" value="0">女
+                    </label>
+                  </div>
+                </div> <!-- radio -->
+              </form>
+            </div> <!-- col-sm-12 -->
+          </div> <!-- row -->
+        </div> <!-- contianer-fluid -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="signup-button">Sign up</button>
       </div>
     </div>
   </div>
+</div>
+
+
+<!-- About us modal -->
+<div class="modal fade" id="AboutusMod" tabindex="-1" role="dialog" aria-labelledby="AboutusModLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="AboutusModLabel">About us</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ResultMod" tabindex="-1" role="dialog" aria-labelledby="ResultModLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="AboutusModLabel">Result</h4>
+      </div>
+      <div class="modal-body">
+       <!--  <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>{0}</p>
+        <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>{1}</p>
+        <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped text-left" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 35%">
+            Accuracy: 35%
+        </div>
+        </div> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" id="showAnalysis">Show analysis</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- js -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<!-- <script src="js/jquery.js"></script> -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/everything.js"></script>
 </body>
 </html>
