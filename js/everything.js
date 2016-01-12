@@ -25,7 +25,26 @@ String.format = function() {
     return str;
 };
 
+function updateiCheck() {
+    $('.checkbox input').iCheck({
+        checkboxClass: 'icheckbox_flat',
+        increaseArea: '20%'
+    });
 
+    $('.radio input').iCheck({
+        radioClass: 'iradio_flat',
+        increaseArea: '20%'
+    });
+
+    $('.radio-inline input').iCheck({
+        radioClass: 'iradio_flat',
+        increaseArea: '20%'
+    });
+}
+
+$.ajaxSetup ({
+    cache: false //close AJAX cache
+});
 // main page
 
 
@@ -154,7 +173,7 @@ function genItem(idx, data) {
         $.each(data.options,function(i,option){
             var idOp = String.fromCharCode("A".charCodeAt()+i);
             conStr += String.format(
-                    '<div class="{0}"><label><input type="{0}" name="q{1}" value="{2}">&nbsp;{2}. {3}</label></div>',
+                    '<div class="{0}"><input type="{0}" name="q{1}" value="{2}" id="chq{1}{2}"><label for="chq{1}{2}">&nbsp;{2}. {3}</label></div>',
                     typ, idx, idOp, option
                 );
         });
@@ -280,7 +299,7 @@ $("#main-content").delegate(".toProblems", "click", function(){
                         // alert(JSON.stringify(obj));
                         $("#plist").append(genItem(i, obj))
                     });
-
+                    updateiCheck();
                     // $("#main-content").
                 },
         error: function(){
@@ -314,3 +333,5 @@ if (pageTarget.length > 0) {
 else {
     $("#index").click();
 }
+
+updateiCheck();

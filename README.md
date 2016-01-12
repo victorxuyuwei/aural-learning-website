@@ -1,5 +1,6 @@
-# listening exercise website
-just for course
+# listening training website
+
+和后台相关的目前只有用户注册，登陆，纯静态下也可以用。主要是利用ajax技术从服务器获取json文件来更新页面，json文件暂时是静态的，未来可改为动态生成，较好的做到了前后端分离
 
 ```
 ------------------------
@@ -34,4 +35,7 @@ just for course
 
 * 原始数据暂时用json组织，不放入数据库
 
+
+# install
+导入web-dev.sql，配置config.php
 
