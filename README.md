@@ -38,4 +38,3 @@
 
 # install
 导入web-dev.sql，配置config.php
-
